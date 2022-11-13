@@ -34,7 +34,6 @@
     name: docker-ce
     state: present
     update_cache: yes
-    #notify: Start docker on boot
 
 - name: Create group
   ansible.builtin.group:
@@ -59,3 +58,8 @@
 #  community.docker.docker_image:
 #    name: "{{ default_image }}"
 #    source: pull
+- name: pull a Docker image
+  docker_image:
+    name: "{{ docker_image }}"
+    tag: latest
+    source: pull
