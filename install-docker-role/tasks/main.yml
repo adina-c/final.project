@@ -54,10 +54,6 @@
     dest: /usr/local/bin/docker-compose
     mode: 'u+x,g+x'
 
-#- name: Pull default Docker image
-#  community.docker.docker_image:
-#    name: "{{ default_image }}"
-#    source: pull
 - name: pull a Docker image
   docker_image:
     name: "{{ docker_image }}"
