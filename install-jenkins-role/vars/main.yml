@@ -1,0 +1,4 @@
+---
+
+jenkins_repo: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"
+java: "openjdk-11-jre"

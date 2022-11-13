@@ -1,0 +1,6 @@
+---
+- name: Jenkins
+  hosts: Clients
+  become: yes
+  roles:
+   - install-jenkins-role

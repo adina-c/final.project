@@ -1,0 +1,5 @@
+[Clients]
+192.168.1.18 ansible_user=adina
+
+[Locals]
+localhost
