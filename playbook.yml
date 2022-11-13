@@ -3,4 +3,5 @@
   hosts: Clients
   become: yes
   roles:
+   - install-docker-role
    - install-jenkins-role

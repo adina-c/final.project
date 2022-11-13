@@ -1,0 +1,14 @@
+---
+required_packages:
+ - apt-transport-https
+ - ca-certificates
+ - curl
+ - gnupg
+ - software-properties-common
+ - python3-pip
+ - virtualenv
+ - python3-setuptools
+ - lsb-release
+docker_key: "https://download.docker.com/linux/ubuntu/gpg"
+stable_repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
+docker_compose_url: "https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64"
