@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  php_img_1:
+      container_name: ${FINAL_PROJECT_NAME}_php_container_1
+      build: ./web1
+      expose:
+         - ${APACHE_EXPOSED_PORT}
+      networks:
+         public_net:
+             ipv4_address: ${PHP_1_IP}
+
+  php_img_2:
+      container_name: ${FINAL_PROJECT_NAME}_php_container_2
+      build: ./web2
+      expose:
+         - ${APACHE_EXPOSED_PORT}
+      networks:
+         public_net:
+             ipv4_address: ${PHP_2_IP}
+
+  php_img_3:
+      container_name: ${FINAL_PROJECT_NAME}_php_container_3
+      build: ./web3
+      expose:
+         - ${APACHE_EXPOSED_PORT}
+      networks:
+         public_net:
+             ipv4_address: ${PHP_3_IP}
+
+  haproxy_img:
+      build: ./haproxy
+      ports:
+         - 5000:80
+      expose:
+         - 80
+      networks:
+         public_net:
+             ipv4_address: ${HA_PROXY_IP}
+      environment:
+         - PHP_1_IP=${PHP_1_IP}
+         - PHP_2_IP=${PHP_2_IP}
+         - PHP_3_IP=${PHP_3_IP}
+         - APACHE_EXPOSED_PORT=${APACHE_EXPOSED_PORT}
+
+networks:
+  public_net:
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: ${NETWORK_SUBNET}
+
+
